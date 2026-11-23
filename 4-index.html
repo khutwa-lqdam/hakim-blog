@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>حكيم</title>
+<meta name="description" content="حكيم: المدونة الرسمية لحكيم.">
+<meta name="theme-color" content="#0b0b0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;800&family=Reem+Kufi:wght@600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0d;--card:#141416;--line:#2a2418;--gold:#d4af37;--gold2:#f1d77a;--text:#ece6d6;--mute:#9a927e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1200px 600px at 50% -10%,#1d1808 0,var(--bg) 60%) fixed;color:var(--text);font-family:'Cairo','Noto Naskh Arabic',Tahoma,system-ui,sans-serif;line-height:1.9;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,11,13,.92);backdrop-filter:blur(8px);z-index:5}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:'Reem Kufi','Cairo',sans-serif;font-size:1.5rem;color:var(--gold);letter-spacing:.5px}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a,nav button{background:none;border:0;color:var(--text);font:inherit;font-size:.95rem;padding:6px 12px;border-radius:999px;cursor:pointer}
+nav a:hover,nav button:hover,nav a.on{background:#1d1a10;color:var(--gold2)}
+.hero{text-align:center;padding:64px 0 40px}
+.orn{color:var(--gold);letter-spacing:10px;font-size:.9rem}
+.hero h1{font-family:'Reem Kufi','Cairo',sans-serif;font-size:clamp(2.6rem,9vw,4.4rem);color:var(--gold);line-height:1.3;margin:10px 0;text-shadow:0 0 40px rgba(212,175,55,.25)}
+.hero p{color:var(--mute);font-size:1.1rem;max-width:520px;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:30px 0 10px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 16px;text-align:center;cursor:pointer;transition:.2s;font:inherit;color:var(--text)}
+.tile:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(212,175,55,.08)}
+.tile .ic{font-size:2rem;display:block;margin-bottom:6px}
+.tile b{display:block;font-size:1.15rem;color:var(--gold2)}
+.tile small{color:var(--mute)}
+h2.sec{font-family:'Reem Kufi','Cairo',sans-serif;color:var(--gold);font-size:1.6rem;margin:38px 0 16px;display:flex;align-items:center;gap:12px}
+h2.sec:after{content:"";flex:1;height:1px;background:linear-gradient(to left,transparent,var(--line))}
+.post{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:14px;transition:.2s}
+.post:hover{border-color:var(--gold)}
+.post h3{font-size:1.3rem;color:var(--gold2);margin-bottom:4px}
+.post time{color:var(--mute);font-size:.85rem}
+.post p{color:#cfc8b6;margin-top:8px}
+.more{color:var(--gold);font-size:.9rem;margin-top:8px;display:inline-block}
+article{padding:40px 0}
+article h1{font-family:'Amiri','Cairo',serif;color:var(--gold);font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.5}
+article time{color:var(--mute);display:block;margin:6px 0 24px}
+article p{font-family:'Amiri','Cairo',serif;font-size:1.35rem;line-height:2.1;margin-bottom:18px;color:#efe9d8}
+.back{display:inline-block;color:var(--gold);margin-top:10px}
+.empty{color:var(--mute);text-align:center;padding:40px 0}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 0;text-align:center;color:var(--mute);font-size:.9rem}
+.ov{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:20;padding:20px}.ov.show{display:flex}.ov>div{background:var(--card);border:1px solid var(--gold);border-radius:20px;padding:28px 24px;max-width:340px;width:100%;text-align:center}.ov h4{font-family:"Reem Kufi","Cairo",sans-serif;color:var(--gold);font-size:1.5rem;margin-bottom:12px}.ov button{background:var(--gold);color:#0b0b0d;border:0;border-radius:999px;padding:8px 26px;font:inherit;font-weight:600;cursor:pointer;margin-top:6px}
+#toast{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);z-index:20;padding:20px}
+#toast.show{display:flex}
+#toast div{background:var(--card);border:1px solid var(--gold);border-radius:20px;padding:30px 26px;max-width:340px;text-align:center}
+#toast h4{font-family:'Reem Kufi','Cairo',sans-serif;color:var(--gold);font-size:1.5rem;margin-bottom:6px}
+#toast p{color:var(--text);margin-bottom:16px}
+#toast button{background:var(--gold);color:#0b0b0d;border:0;border-radius:999px;padding:8px 26px;font:inherit;font-weight:600;cursor:pointer}
+
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{width:40px;height:40px;filter:drop-shadow(0 0 8px rgba(212,175,55,.35))}
+.brand{font-family:'Aref Ruqaa','Reem Kufi',serif;font-size:1.7rem}
+.hero{position:relative;margin:26px 0 0;padding:56px 20px 44px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(212,175,55,.05),transparent)}
+.hero:before{content:"";position:absolute;inset:8px;border:1px solid rgba(212,175,55,.35);border-radius:16px;pointer-events:none}
+.corner{position:absolute;width:34px;height:34px;border:2px solid var(--gold);pointer-events:none}
+.corner.a{top:-2px;right:-2px;border-left:0;border-bottom:0;border-top-right-radius:22px}
+.corner.b{top:-2px;left:-2px;border-right:0;border-bottom:0;border-top-left-radius:22px}
+.corner.c{bottom:-2px;right:-2px;border-left:0;border-top:0;border-bottom-right-radius:22px}
+.corner.d{bottom:-2px;left:-2px;border-right:0;border-top:0;border-bottom-left-radius:22px}
+.hero h1{font-family:'Aref Ruqaa','Reem Kufi',serif;font-weight:700;font-size:clamp(3.6rem,15vw,6.2rem);background:linear-gradient(100deg,#9c7a1c 10%,#f6e08e 40%,#d4af37 60%,#9c7a1c 90%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+.hero .bigmark{width:84px;height:84px;margin:0 auto;display:block;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(212,175,55,.4))}
+.orn{animation:twinkle 3s ease-in-out infinite}
+.tile,.post{position:relative}
+.tile:before,.post:before{content:"";position:absolute;inset:5px;border:1px solid rgba(212,175,55,.14);border-radius:12px;pointer-events:none;transition:.2s}
+.tile:hover:before,.post:hover:before{border-color:rgba(212,175,55,.5)}
+.tile svg{width:38px;height:38px;margin-bottom:8px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tile .ic{display:none}
+.rise{animation:rise .8s both}
+.tile:nth-child(2){animation-delay:.1s}.tile:nth-child(3){animation-delay:.2s}.tile:nth-child(4){animation-delay:.3s}
+.tile,.post,article,.hero{animation:rise .8s both}
+.cbtn{background:linear-gradient(135deg,#b8912a,#f1d77a);color:#0b0b0d!important;font-weight:700;border-radius:999px!important;margin-inline-start:6px}
+.cbtn:hover{filter:brightness(1.1);background:linear-gradient(135deg,#b8912a,#f1d77a)!important;color:#0b0b0d!important}
+nav{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}nav::-webkit-scrollbar{display:none}
+nav a,nav button{white-space:nowrap;padding:6px 10px}
+.bar{gap:8px}
+.clinks a{display:block;border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px;color:var(--gold2)}
+@keyframes shine{to{background-position:220% center}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes twinkle{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.hero h1{line-height:2;padding:6px 0;margin:0}
+.bar{height:auto;flex-wrap:wrap;padding:8px 0}
+nav{overflow:visible;flex-wrap:wrap;justify-content:center;width:100%}
+@media(min-width:700px){nav{width:auto}}
+.lg{width:46px;height:46px;border-radius:12px;border:2px solid var(--gold);background:#fff;object-fit:cover;box-shadow:0 0 14px rgba(212,175,55,.3)}
+.hero .bigmark{width:190px;height:190px;border-radius:26px;border:3px solid var(--gold);background:#fff;object-fit:cover;box-shadow:0 0 0 6px #0b0b0d,0 0 0 8px rgba(212,175,55,.5),0 0 40px rgba(212,175,55,.3)}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#/"><img class="lg" src="logo.jpg" alt="شعار حكيم"><span class="brand">حكيم</span></a>
+<nav>
+<a href="#/" id="n-home">الرئيسية</a>
+<a href="#/blog" id="n-blog">المدونة</a>
+<button data-soon="المتجر">المتجر</button>
+<button data-soon="الأعمال">الأعمال</button>
+<button data-soon="المزيد">المزيد</button>
+<button class="cbtn" id="cb">تواصل معي</button>
+</nav></div></header>
+<main class="wrap" id="app"></main>
+<footer><div class="wrap"><div class="orn">✦ ✦ ✦</div>حكيم · جميع الحقوق محفوظة</div></footer>
+<div id="contact" class="ov"><div><h4>تواصل معي</h4><div class="clinks" id="cl"></div><button id="cc">إغلاق</button></div></div>
+<div id="toast"><div><h4 id="tt">قريبًا</h4><p>سوف تتم إضافة هذا القسم قريبًا.</p><button id="tc">حسنًا</button></div></div>
+<script>
+var posts=[],links=[];fetch('links.json?'+Date.now()).then(function(r){return r.json()}).then(function(d){links=d}).catch(function(){});
+var app=document.getElementById('app');
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function fmt(d){try{return new Date(d).toLocaleDateString('ar-SA-u-nu-latn',{year:'numeric',month:'long',day:'numeric'})}catch(e){return d}}
+function soon(n){document.getElementById('tt').textContent=n+' قريبًا';document.getElementById('toast').classList.add('show')}
+document.querySelectorAll('[data-soon]').forEach(function(b){b.onclick=function(){soon(b.dataset.soon)}});
+document.getElementById('cb').onclick=function(){var c=document.getElementById('cl');c.innerHTML='';if(!links.length)c.appendChild(el('p','','قنوات التواصل سوف تتم إضافتها قريبًا.'));links.forEach(function(l){var a=el('a','',l.label);a.href=l.url;a.target='_blank';a.rel='noopener';c.appendChild(a)});document.getElementById('contact').classList.add('show')};
+document.getElementById('cc').onclick=function(){document.getElementById('contact').classList.remove('show')};
+document.getElementById('contact').onclick=function(e){if(e.target.id==='contact')e.target.classList.remove('show')};
+document.getElementById('tc').onclick=function(){document.getElementById('toast').classList.remove('show')};
+document.getElementById('toast').onclick=function(e){if(e.target.id==='toast')e.target.classList.remove('show')};
+function card(p){var a=el('a','post');a.href='#/post/'+encodeURIComponent(p.id);
+ a.appendChild(el('time','',fmt(p.date)));a.appendChild(el('h3','',p.title));
+ a.appendChild(el('p','',p.summary||(p.body&&p.body[0])||''));a.appendChild(el('span','more','اقرأ المزيد ←'));return a}
+function setNav(id){['n-home','n-blog'].forEach(function(i){document.getElementById(i).classList.toggle('on',i===id)})}
+function home(){setNav('n-home');app.innerHTML='';
+ var h=el('section','hero');['a','b','c','d'].forEach(function(c){h.appendChild(el('i','corner '+c))});h.insertAdjacentHTML('beforeend','<img class="bigmark" src="logo.jpg" alt="عبدالحكيم حراب">');h.lastChild.getAttribute('x');if(0)h.insertAdjacentHTML('beforeend','<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" fill="#0b0b0d" stroke="#d4af37" stroke-width="2.5"/><circle cx="32" cy="32" r="24" fill="none" stroke="#d4af37" stroke-opacity=".5" stroke-width="1"/><text x="32" y="45" text-anchor="middle" font-family="Aref Ruqaa,serif" font-size="38" font-weight="700" fill="#f1d77a">ح</text></svg>');h.appendChild(el('div','orn','✦ ✦ ✦'));h.appendChild(el('h1','','حكيم'));
+ h.appendChild(el('p','','المدونة الرسمية لحكيم. كلمات ومقالات وأفكار، وأقسام جديدة تأتي قريبًا.'));app.appendChild(h);
+ var g=el('div','grid');
+ [['<svg viewBox="0 0 24 24"><path d="M4 20h4l11-11-4-4L4 16z"/><path d="M13 7l4 4"/></svg>','المدونة','متاحة الآن','blog'],['<svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>','المتجر','قريبًا','المتجر'],['<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-6-6-8 9"/></svg>','الأعمال','قريبًا','الأعمال'],['<svg viewBox="0 0 24 24"><path d="M12 3l2.5 6 6.5.5-5 4.3 1.6 6.4L12 16.8 6.4 20.2 8 13.8 3 9.5 9.5 9z"/></svg>','المزيد','قريبًا','المزيد']].forEach(function(t){
+  var b=el('button','tile');b.innerHTML=t[0]+'<b></b><small></small>';
+  b.querySelector('b').textContent=t[1];b.querySelector('small').textContent=t[2];
+  b.onclick=function(){t[3]==='blog'?location.hash='#/blog':soon(t[3])};g.appendChild(b)});
+ app.appendChild(g);
+ app.appendChild(el('h2','sec','أحدث المقالات'));
+ if(!posts.length)app.appendChild(el('div','empty','لا توجد مقالات بعد.'));
+ posts.slice(0,3).forEach(function(p){app.appendChild(card(p))})}
+function blog(){setNav('n-blog');app.innerHTML='';app.appendChild(el('h2','sec','المدونة'));
+ if(!posts.length)app.appendChild(el('div','empty','لا توجد مقالات بعد.'));
+ posts.forEach(function(p){app.appendChild(card(p))})}
+function post(id){setNav('n-blog');app.innerHTML='';
+ var p=posts.filter(function(x){return String(x.id)===id})[0];
+ if(!p){app.appendChild(el('div','empty','المقال غير موجود.'));return}
+ document.title=p.title+' | حكيم';
+ var a=el('article');a.appendChild(el('h1','',p.title));a.appendChild(el('time','',fmt(p.date)));
+ (p.body||[]).forEach(function(t){a.appendChild(el('p','',t))});
+ var b=el('a','back','→ العودة إلى المدونة');b.href='#/blog';a.appendChild(b);app.appendChild(a)}
+function route(){window.scrollTo(0,0);document.title='حكيم';var h=location.hash.replace(/^#\/?/,'');
+ if(h==='blog')blog();else if(h.indexOf('post/')===0)post(decodeURIComponent(h.slice(5)));else home()}
+window.addEventListener('hashchange',route);
+fetch('posts.json?'+Date.now()).then(function(r){return r.json()}).then(function(d){posts=d.sort(function(a,b){return b.date<a.date?-1:1});route()}).catch(function(){route()});
+</script>
+</body>
+</html>
